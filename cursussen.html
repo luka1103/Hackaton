@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursussen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #11310D;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            color: #11310D;
+        }
+        .container {
+            background-color: #FCF3EB;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .course-list label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .course-list input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .custom-course {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #11310D;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Selecteer je cursussen</h1>
+    <form id="courseForm">
+        <div class="course-list">
+            <label><input type="checkbox"> Agile Scrum Foundation</label>
+            <label><input type="checkbox"> ISTQB Certified Tester Foundation Level (CTFL)</label>
+            <label><input type="checkbox"> Microsoft: Azure Fundamentals (AZ900)</label>
+            <label><input type="checkbox"> IREB CPRE Foundation Level</label>
+            <label><input type="checkbox"> ITIL 4 Foundation</label>
+            <label><input type="checkbox"> CCNA</label>
+        </div>
+        <div class="custom-course">
+            <label for="customCourse">Voeg je eigen cursus toe:</label>
+            <input type="text" id="customCourse" name="customCourse">
+            <button type="button" onclick="addCustomCourse()">Voeg toe</button>
+        </div>
+        <button type="submit">Opslaan en Terug</button>
+    </form>
+</div>
+
+<script>
+    function addCustomCourse() {
+        const customCourseInput = document.getElementById('customCourse');
+        const customCourse = customCourseInput.value.trim();
+
+        if (customCourse) {
+            const courseList = document.querySelector('.course-list');
+            const newCourse = document.createElement('label');
+            newCourse.innerHTML = `<input type="checkbox" checked> ${customCourse}`;
+            courseList.appendChild(newCourse);
+            customCourseInput.value = '';
+        }
+    }
+
+    document.getElementById('courseForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        window.location.href = 'index.html';
+    });
+</script>
+
+</body>
+</html>

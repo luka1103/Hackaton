@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talenten</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #11310D;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            color: #11310D;
+        }
+        .container {
+            background-color: #FCF3EB;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .talent-list label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .talent-list input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .custom-talent {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #11310D;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Selecteer je talenten</h1>
+    <form id="talentForm">
+        <div class="talent-list">
+            <label><input type="checkbox"> Innovatief denken</label>
+            <label><input type="checkbox"> Probleemoplossend vermogen</label>
+            <label><input type="checkbox"> Creatief schrijven</label>
+            <label><input type="checkbox"> Analytische vaardigheden</label>
+            <label><input type="checkbox"> Leiderschap</label>
+            <label><input type="checkbox"> Teamwerk</label>
+            <label><input type="checkbox"> Communicatie</label>
+            <label><input type="checkbox"> Projectmanagement</label>
+            <label><input type="checkbox"> Klantgerichtheid</label>
+            <label><input type="checkbox"> Flexibiliteit</label>
+            <label><input type="checkbox"> Tijdmanagement</label>
+            <label><input type="checkbox"> Oplossingsgericht denken</label>
+            <label><input type="checkbox"> Stressbestendigheid</label>
+            <label><input type="checkbox"> Zelfdiscipline</label>
+            <label><input type="checkbox"> Creativiteit</label>
+            <label><input type="checkbox"> Besluitvaardigheid</label>
+            <label><input type="checkbox"> Kritisch denken</label>
+            <label><input type="checkbox"> Programmeervaardigheden</label>
+            <label><input type="checkbox"> Data-analyse</label>
+            <label><input type="checkbox"> Machine learning</label>
+            <label><input type="checkbox"> Kunstmatige intelligentie</label>
+            <label><input type="checkbox"> Netwerken</label>
+            <label><input type="checkbox"> Cybersecurity</label>
+            <label><input type="checkbox"> Cloud computing</label>
+            <label><input type="checkbox"> Webontwikkeling</label>
+            <label><input type="checkbox"> Softwareontwikkeling</label>
+            <label><input type="checkbox"> IT-ondersteuning</label>
+            <label><input type="checkbox"> Systeembeheer</label>
+            <label><input type="checkbox"> UI/UX ontwerp</label>
+        </div>
+        <div class="custom-talent">
+            <label for="customTalent">Voeg je eigen talent toe:</label>
+            <input type="text" id="customTalent" name="customTalent">
+            <button type="button" onclick="addCustomTalent()">Voeg toe</button>
+        </div>
+        <button type="submit">Opslaan en Terug</button>
+    </form>
+</div>
+
+<script>
+    function addCustomTalent() {
+        const customTalentInput = document.getElementById('customTalent');
+        const customTalent = customTalentInput.value.trim();
+
+        if (customTalent) {
+            const talentList = document.querySelector('.talent-list');
+            const newTalent = document.createElement('label');
+            newTalent.innerHTML = `<input type="checkbox" checked> ${customTalent}`;
+            talentList.appendChild(newTalent);
+            customTalentInput.value = '';
+        }
+    }
+
+    document.getElementById('talentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        window.location.href = 'index.html';
+    });
+</script>
+
+</body>
+</html>

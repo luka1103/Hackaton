@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Droombaan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #11310D;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            color: #11310D;
+        }
+        .container {
+            background-color: #FCF3EB;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #11310D;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Beschrijf je droombaan</h1>
+    <form id="dreamJobForm">
+        <div class="form-group">
+            <label for="dreamJobDescription">Beschrijving van droombaan:</label>
+            <textarea id="dreamJobDescription" name="dreamJobDescription" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="vacatureUpload">Upload vacature (optioneel):</label>
+            <input type="file" id="vacatureUpload" name="vacatureUpload">
+        </div>
+        <button type="submit">Opslaan en Terug</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('dreamJobForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        window.location.href = 'index.html';
+    });
+</script>
+
+</body>
+</html>

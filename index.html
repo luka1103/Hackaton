@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Suggesties</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #11310D;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #11310D;
+        }
+
+        .container {
+            background-color: #FCF3EB;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .options label,
+        .options a {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .options input[type="checkbox"],
+        .options a {
+            margin-right: 10px;
+        }
+
+        .suggestions {
+            margin-top: 20px;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #11310D;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            width: auto;
+            /* Voorkomt dat knoppen te breed worden */
+            max-width: 120px;
+            /* Instellen van een minimale breedte voor consistentie */
+        }
+
+        .logo {
+            position: absolute;
+            bottom: 05%;
+            /* Afstand vanaf de onderkant van de container */
+            left: 50%;
+            /* Plaats de logo-div in het midden */
+            transform: translateX(-50%);
+            /* Center de logo-div horizontaal */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>AI Suggesties</h1>
+        <p>Vul je talenten in:</p>
+        <div class="options">
+            <a href="talenten.html" class="button">Talenten</a>
+        </div>
+        <p>Vul minstens één van de volgende opties:</p>
+        <div class="options">
+            <a href="droombaan.html" class="button">Droombaan</a>
+            <a href="cursussen.html" class="button">Cursussen</a>
+        </div>
+        <p>Selecteer welke suggesties je wilt ontvangen:</p>
+        <div class="options">
+            <label><input type="checkbox" id="baan"> Suggesties voor banen</label>
+            <label><input type="checkbox" id="cursussen"> Suggesties voor cursussen</label>
+        </div>
+        <button onclick="getSuggestions()">Ontvang suggesties</button>
+
+        <div class="suggestions" id="suggestions"></div>
+    </div>
+
+    <script>
+        function getSuggestions() {
+            const baan = document.getElementById('baan').checked;
+            const cursussen = document.getElementById('cursussen').checked;
+
+            if (!baan && !cursussen) {
+                alert('Selecteer minstens één soort suggestie.');
+                return;
+            }
+
+            let suggestions = '';
+
+            if (baan) {
+                suggestions += '<h3>Suggesties voor banen:</h3><p>IT-Projectmanager</p>';
+            }
+            if (cursussen) {
+                suggestions += '<h3>Suggesties voor cursussen:</h3><p>ITIL 4 Foundation, CCNA, YC NEXT: Communicatie</p>';
+            }
+
+            document.getElementById('suggestions').innerHTML = suggestions;
+        }
+    </script>
+
+<div class="logo">
+            <img src="LogoNEXT.png" alt="Jouw Logo" style="width: 400px">
+</div>
+
+</body>
+
+</html>
